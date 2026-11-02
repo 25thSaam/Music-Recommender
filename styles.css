@@ -1,0 +1,176 @@
+/* ---------- Base ---------- */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #1c1e26;
+  --muted: #6b7080;
+  --accent: #5b4bdb;
+  --accent-hover: #4a3bc2;
+  --border: #e2e4ec;
+  --error: #c0392b;
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 60px;
+}
+
+/* ---------- Header ---------- */
+.app-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.app-header__title {
+  margin: 0 0 6px;
+  font-size: 2rem;
+}
+
+.app-header__subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- SearchForm ---------- */
+.search-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.search-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.search-form__field--wide {
+  grid-column: 1 / -1;
+}
+
+.search-form label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.search-form input,
+.search-form select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--text);
+}
+
+.search-form input:focus,
+.search-form select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.search-form__button {
+  grid-column: 1 / -1;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.search-form__button:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.search-form__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---------- Results ---------- */
+.results {
+  margin-top: 28px;
+}
+
+.status {
+  text-align: center;
+  color: var(--muted);
+}
+
+.status--error {
+  color: var(--error);
+}
+
+.song-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ---------- SongCard ---------- */
+.song-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 4px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.song-card__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.song-card__artist {
+  margin: 0;
+  color: var(--muted);
+}
+
+.song-card__tag {
+  align-self: start;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: #eeebff;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.song-card__reason {
+  grid-column: 1 / -1;
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 520px) {
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+}
